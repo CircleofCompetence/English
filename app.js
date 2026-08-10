@@ -6,6 +6,7 @@
   let game = [], current = 0, score = 0, answered = false;
   let speechTimers = [], audioContext = null, bgmTimer = null, soundOn = false;
   let memoryBest = 0;
+  const wordAudio = $('wordAudio');
 
   // iOS 개인 정보 보호 모드나 file:// 실행에서는 localStorage 접근 자체가
   // 예외를 던질 수 있습니다. 기록 기능이 막혀도 게임은 계속되게 합니다.
@@ -74,7 +75,8 @@
       button.addEventListener('click', () => chooseAnswer(button, choice));
       grid.appendChild(button);
     });
-    setTimeout(() => speakThreeTimes(q.word), 350);
+    // 첫 재생을 터치 이벤트 흐름 안에서 즉시 요청해야 인앱 브라우저가 허용합니다.
+    speakThreeTimes(q.word);
   }
 
   function chooseAnswer(button, choice) {
@@ -137,7 +139,30 @@
 
   function stopSpeech() {
     speechTimers.forEach(clearTimeout); speechTimers = [];
+    if (wordAudio) {
+      try { wordAudio.pause(); wordAudio.currentTime = 0; } catch (_) { /* 계속 */ }
+    }
     try { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); } catch (_) { /* 계속 */ }
+  }
+
+  function audioPath(word) {
+    const slug = word.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return `assets/audio/${slug}.wav?v=1`;
+  }
+
+  function playRecordedWord(word) {
+    if (!wordAudio) { speak(word); return; }
+    try {
+      const path = audioPath(word);
+      if (!wordAudio.getAttribute('src') || !wordAudio.getAttribute('src').includes(path)) {
+        wordAudio.src = path;
+        wordAudio.load();
+      }
+      wordAudio.pause();
+      wordAudio.currentTime = 0;
+      const result = wordAudio.play();
+      if (result && typeof result.catch === 'function') result.catch(() => speak(word));
+    } catch (_) { speak(word); }
   }
 
   function speak(word) {
@@ -160,12 +185,14 @@
   function speakThreeTimes(word) {
     stopSpeech();
     if (!soundOn) { $('listenStatus').textContent = '🔇 소리 버튼을 켜면 발음을 들어요'; return; }
-    [0, 3000, 6000].forEach((delay, index) => {
-      speechTimers.push(setTimeout(() => {
-        $('listenStatus').textContent = `${index + 1}번째 발음 · ${index < 2 ? '3초 뒤 다시 들려줘요' : '이제 그림을 골라요!'}`;
-        speak(word);
-      }, delay));
-    });
+    const playOnce = index => {
+      $('listenStatus').textContent = `${index + 1}번째 발음 · ${index < 2 ? '3초 뒤 다시 들려줘요' : '이제 그림을 골라요!'}`;
+      playRecordedWord(word);
+    };
+    // 1회차는 setTimeout을 거치지 않아야 현재 터치를 음원 허용 동작으로 인식합니다.
+    playOnce(0);
+    speechTimers.push(setTimeout(() => playOnce(1), 3000));
+    speechTimers.push(setTimeout(() => playOnce(2), 6000));
   }
 
   function ensureAudio() {
