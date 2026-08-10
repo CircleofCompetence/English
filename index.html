@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff7e8">
+  <meta name="description" content="초등학교 1학년을 위한 그림 영어 단어 퀴즈">
+  <title>하준이의 영어게임</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+  <div class="cloud cloud-one" aria-hidden="true"></div>
+  <div class="cloud cloud-two" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="처음으로"><span>ABC</span> 하준이의 영어게임</a>
+      <button id="soundButton" class="icon-button" type="button" aria-label="소리 켜기" aria-pressed="false">🔇</button>
+    </header>
+
+    <section id="welcomeScreen" class="screen welcome-screen" aria-labelledby="welcomeTitle">
+      <div class="welcome-copy">
+        <p class="eyebrow">PLAY · LISTEN · LEARN</p>
+        <h1 id="welcomeTitle">하준아,<br><em>영어 그림</em>을 찾아볼까?</h1>
+        <p class="welcome-description">영어 단어를 잘 듣고 알맞은 그림을 골라요.<br>한 게임은 재미있는 10문제예요!</p>
+        <div class="feature-pills" aria-label="게임 특징">
+          <span>🔊 3번 듣기</span><span>🖼️ 그림 고르기</span><span>⭐ 별 모으기</span>
+        </div>
+        <button id="startButton" class="primary-button" type="button">게임 시작 <span>→</span></button>
+        <p class="best-score" id="bestScore">나의 최고 기록: 아직 없어요</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <img id="heroImage" src="assets/hero.png" alt="" onerror="this.hidden=true; this.nextElementSibling.hidden=false">
+        <div class="art-fallback" hidden>🐻<span>📚</span>🐰</div>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="screen quiz-screen" hidden aria-labelledby="questionTitle">
+      <div class="progress-header">
+        <button id="homeButton" class="round-button" type="button" aria-label="게임 나가기">⌂</button>
+        <div class="progress-wrap">
+          <div class="progress-label"><span id="questionCount">1 / 10</span><span id="scoreLabel">⭐ 0</span></div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+      </div>
+
+      <div class="question-panel">
+        <p class="question-kicker">잘 듣고 그림을 골라요!</p>
+        <h2 id="questionTitle" class="spoken-word">Ready?</h2>
+        <p class="listen-status"><span class="sound-waves">)))</span> <span id="listenStatus">영어 발음을 들려줄게요</span></p>
+        <button id="replayButton" class="replay-button" type="button">🔊 다시 듣기</button>
+      </div>
+
+      <div id="answerGrid" class="answer-grid" role="group" aria-label="그림 보기"></div>
+      <div id="feedback" class="feedback" role="status" aria-live="assertive" hidden>
+        <div id="feedbackIcon" class="feedback-icon"></div>
+        <div><strong id="feedbackTitle"></strong><p id="feedbackText"></p></div>
+      </div>
+      <button id="nextButton" class="primary-button next-button" type="button" hidden>다음 문제 <span>→</span></button>
+    </section>
+
+    <section id="resultScreen" class="screen result-screen" hidden aria-labelledby="resultTitle">
+      <div id="resultConfetti" class="result-confetti" aria-hidden="true">⭐ 🌈 ⭐</div>
+      <p class="eyebrow">GAME COMPLETE!</p>
+      <h2 id="resultTitle">하준이 최고!</h2>
+      <div id="resultFace" class="result-face" aria-hidden="true">🏆</div>
+      <p id="resultMessage" class="result-message"></p>
+      <div class="score-card"><span>이번 점수</span><strong id="finalScore">0 / 10</strong><div id="starRating" class="star-rating"></div></div>
+      <button id="restartButton" class="primary-button" type="button">한 번 더! <span>↻</span></button>
+      <button id="resultHomeButton" class="text-button" type="button">처음 화면으로</button>
+    </section>
+  </main>
+  <footer>Made with 💛 for Hajun</footer>
+  <script src="questions.js?v=2"></script>
+  <script src="app.js?v=2"></script>
+</body>
+</html>
