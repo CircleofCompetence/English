@@ -1,4 +1,4 @@
-// 100개의 초등 저학년용 기초 영어 단어. 같은 category 안에서 오답 보기를 만듭니다.
+// 200개의 초등 저학년용 기초 영어 단어. 같은 category 안에서 오답 보기를 만듭니다.
 window.QUESTIONS = [
   {word:'cat',emoji:'🐱',ko:'고양이',category:'animal'}, {word:'dog',emoji:'🐶',ko:'강아지',category:'animal'},
   {word:'rabbit',emoji:'🐰',ko:'토끼',category:'animal'}, {word:'bear',emoji:'🐻',ko:'곰',category:'animal'},
@@ -54,5 +54,67 @@ window.QUESTIONS = [
   {word:'glasses',emoji:'👓',ko:'안경',category:'wear'}, {word:'socks',emoji:'🧦',ko:'양말',category:'wear'},
   {word:'hand',emoji:'✋',ko:'손',category:'body'}, {word:'eye',emoji:'👁️',ko:'눈',category:'body'},
   {word:'ear',emoji:'👂',ko:'귀',category:'body'}, {word:'nose',emoji:'👃',ko:'코',category:'body'},
-  {word:'mouth',emoji:'👄',ko:'입',category:'body'}, {word:'foot',emoji:'🦶',ko:'발',category:'body'}
+  {word:'mouth',emoji:'👄',ko:'입',category:'body'}, {word:'foot',emoji:'🦶',ko:'발',category:'body'},
+
+  // 초등학교 2학년 수준 추가 단어 100개
+  {word:'ant',emoji:'🐜',ko:'개미',category:'animal'}, {word:'bee',emoji:'🐝',ko:'벌',category:'animal'},
+  {word:'butterfly',emoji:'🦋',ko:'나비',category:'animal'}, {word:'camel',emoji:'🐪',ko:'낙타',category:'animal'},
+  {word:'crab',emoji:'🦀',ko:'게',category:'animal'}, {word:'deer',emoji:'🦌',ko:'사슴',category:'animal'},
+  {word:'goat',emoji:'🐐',ko:'염소',category:'animal'}, {word:'hippo',emoji:'🦛',ko:'하마',category:'animal'},
+  {word:'kangaroo',emoji:'🦘',ko:'캥거루',category:'animal'}, {word:'owl',emoji:'🦉',ko:'부엉이',category:'animal'},
+  {word:'panda',emoji:'🐼',ko:'판다',category:'animal'}, {word:'parrot',emoji:'🦜',ko:'앵무새',category:'animal'},
+  {word:'shark',emoji:'🦈',ko:'상어',category:'animal'}, {word:'snake',emoji:'🐍',ko:'뱀',category:'animal'},
+  {word:'wolf',emoji:'🐺',ko:'늑대',category:'animal'},
+
+  {word:'beef',emoji:'🥩',ko:'소고기',category:'food'}, {word:'candy',emoji:'🍬',ko:'사탕',category:'food'},
+  {word:'cherry',emoji:'🍒',ko:'체리',category:'food'}, {word:'chocolate',emoji:'🍫',ko:'초콜릿',category:'food'},
+  {word:'donut',emoji:'🍩',ko:'도넛',category:'food'}, {word:'honey',emoji:'🍯',ko:'꿀',category:'food'},
+  {word:'juice',emoji:'🧃',ko:'주스',category:'food'}, {word:'mango',emoji:'🥭',ko:'망고',category:'food'},
+  {word:'noodle',emoji:'🍜',ko:'국수',category:'food'}, {word:'pear',emoji:'🍐',ko:'배',category:'food'},
+  {word:'potato',emoji:'🥔',ko:'감자',category:'food'}, {word:'salad',emoji:'🥗',ko:'샐러드',category:'food'},
+  {word:'sandwich',emoji:'🥪',ko:'샌드위치',category:'food'}, {word:'soup',emoji:'🥣',ko:'수프',category:'food'},
+  {word:'tomato',emoji:'🍅',ko:'토마토',category:'food'},
+
+  {word:'crayon',emoji:'🖍️',ko:'크레용',category:'school'}, {word:'desk',emoji:'🪑',ko:'책상',category:'school'},
+  {word:'eraser',emoji:'◻️',ko:'지우개',category:'school'}, {word:'glue',emoji:'🧴',ko:'풀',category:'school'},
+  {word:'notebook',emoji:'📓',ko:'공책',category:'school'}, {word:'paper',emoji:'📄',ko:'종이',category:'school'},
+  {word:'pen',emoji:'🖊️',ko:'펜',category:'school'}, {word:'ruler',emoji:'📏',ko:'자',category:'school'},
+  {word:'scissors',emoji:'✂️',ko:'가위',category:'school'}, {word:'bell',emoji:'🔔',ko:'종',category:'school'},
+  {word:'computer',emoji:'💻',ko:'컴퓨터',category:'school'}, {word:'map',emoji:'🗺️',ko:'지도',category:'school'},
+  {word:'paint',emoji:'🎨',ko:'물감',category:'school'}, {word:'brush',emoji:'🖌️',ko:'붓',category:'school'},
+  {word:'calendar',emoji:'📅',ko:'달력',category:'school'},
+
+  {word:'basket',emoji:'🧺',ko:'바구니',category:'thing'}, {word:'bottle',emoji:'🍾',ko:'병',category:'thing'},
+  {word:'box',emoji:'📦',ko:'상자',category:'thing'}, {word:'candle',emoji:'🕯️',ko:'양초',category:'thing'},
+  {word:'comb',emoji:'🪮',ko:'빗',category:'thing'}, {word:'fan',emoji:'🪭',ko:'부채',category:'thing'},
+  {word:'fork',emoji:'🍴',ko:'포크',category:'thing'}, {word:'lamp',emoji:'💡',ko:'전등',category:'thing'},
+  {word:'mirror',emoji:'🪞',ko:'거울',category:'thing'}, {word:'pillow',emoji:'🛏️',ko:'베개',category:'thing'},
+  {word:'plate',emoji:'🍽️',ko:'접시',category:'thing'}, {word:'radio',emoji:'📻',ko:'라디오',category:'thing'},
+  {word:'soap',emoji:'🧼',ko:'비누',category:'thing'}, {word:'toilet',emoji:'🚽',ko:'변기',category:'thing'},
+  {word:'watch',emoji:'⌚',ko:'손목시계',category:'thing'},
+
+  {word:'beach',emoji:'🏖️',ko:'해변',category:'place'}, {word:'desert',emoji:'🏜️',ko:'사막',category:'place'},
+  {word:'forest',emoji:'🌲',ko:'숲',category:'place'}, {word:'garden',emoji:'🪴',ko:'정원',category:'place'},
+  {word:'island',emoji:'🏝️',ko:'섬',category:'place'}, {word:'lake',emoji:'🛶',ko:'호수',category:'place'},
+  {word:'river',emoji:'🏞️',ko:'강',category:'place'}, {word:'rock',emoji:'🪨',ko:'바위',category:'place'},
+  {word:'sky',emoji:'🌌',ko:'하늘',category:'place'}, {word:'wind',emoji:'🌬️',ko:'바람',category:'place'},
+  {word:'farm',emoji:'🚜',ko:'농장',category:'place'}, {word:'park',emoji:'🛝',ko:'공원',category:'place'},
+  {word:'school',emoji:'🏫',ko:'학교',category:'place'}, {word:'hospital',emoji:'🏥',ko:'병원',category:'place'},
+  {word:'zoo',emoji:'🎟️',ko:'동물원',category:'place'},
+
+  {word:'coat',emoji:'🧥',ko:'외투',category:'wear'}, {word:'pants',emoji:'👖',ko:'바지',category:'wear'},
+  {word:'skirt',emoji:'👗',ko:'치마',category:'wear'}, {word:'shorts',emoji:'🩳',ko:'반바지',category:'wear'},
+  {word:'boot',emoji:'🥾',ko:'장화',category:'wear'}, {word:'glove',emoji:'🧤',ko:'장갑',category:'wear'},
+  {word:'scarf',emoji:'🧣',ko:'목도리',category:'wear'}, {word:'crown',emoji:'👑',ko:'왕관',category:'wear'},
+  {word:'tooth',emoji:'🦷',ko:'이',category:'body'}, {word:'leg',emoji:'🦵',ko:'다리',category:'body'},
+
+  {word:'baby',emoji:'👶',ko:'아기',category:'people'}, {word:'boy',emoji:'👦',ko:'소년',category:'people'},
+  {word:'girl',emoji:'👧',ko:'소녀',category:'people'}, {word:'mother',emoji:'👩',ko:'어머니',category:'people'},
+  {word:'father',emoji:'👨',ko:'아버지',category:'people'}, {word:'family',emoji:'👪',ko:'가족',category:'people'},
+  {word:'teacher',emoji:'🧑‍🏫',ko:'선생님',category:'people'}, {word:'doctor',emoji:'🧑‍⚕️',ko:'의사',category:'people'},
+  {word:'farmer',emoji:'🧑‍🌾',ko:'농부',category:'people'}, {word:'cook',emoji:'🧑‍🍳',ko:'요리사',category:'people'},
+
+  {word:'morning',emoji:'🌅',ko:'아침',category:'time'}, {word:'night',emoji:'🌃',ko:'밤',category:'time'},
+  {word:'spring',emoji:'🌸',ko:'봄',category:'time'}, {word:'summer',emoji:'🌞',ko:'여름',category:'time'},
+  {word:'winter',emoji:'☃️',ko:'겨울',category:'time'}
 ];
